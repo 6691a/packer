@@ -1,0 +1,35 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US
+  keyboard:
+    layout: en
+  ssh:
+    install-server: true
+    allow-pw: true
+    disable_root: true
+    ssh_quiet_keygen: true
+    allow_public_ssh_keys: true
+  packages:
+    - qemu-guest-agent
+    - sudo
+  storage:
+    layout:
+      name: direct
+    swap:
+      size: 0
+  user-data:
+    package_upgrade: false
+    timezone: Europe/Berlin
+    users:
+      - name: proxmox
+        # groups: [adm, sudo]
+        groups: [adm, cdrom, dip, plugdev, lxd, sudo]
+        lock-passwd: false
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+        # passwd: $6$exDY1mhS4KUYCE/2$zmn9ToZwTKLhCw.b4/b.ZRTIZM30JZ4QrOQ2aOXJ8yk96xpcCof0kxKwuX1kqLG/ygbJ1f8wxED22bTL4F46P0 #ubuntu
+        # - or -
+        ssh_authorized_keys:
+          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCrM5lFR1vqVihYhlmZT3ts2OeyT8ein3fXO2YGpIXlv6p9FkxTVhE/p7PwhsuOyv34r/bk0HvmnRIODreBn+u2qt+NS2qSWa81kt8wuDJihWTu+0EogAG3xst2ymTBfQkN1MhFjbydTqy/bxw2erWTJQyPvNPjXN2+8oXVhreHr4CTURnefY6Ecywc2oDdaUdGVZuyK0fDJKbmhJduoUeJX/UoezbDmgZb+SrfY9ZvO5Epz85vwShsF/k1Q701Hspe666mw3YpiY2YmELi91JtEiiAELTQiXEhCrKoTJ9aWJlczO/0JbMgJcRNRDu1h+O0H82W7jg2nPq4DB5nGtphkCsDtPKV1sHH61lkW1yYv0q/WgQoUek/H81BOslGr+5nPj12YnUT7RuN9rh6p32CpvK2jdp2p1qYdPbSQeGhEwlnd2WUVmgZrXKaRb3v2Ws5IK2BNWLfr+bsg0bq59ZLrKn1d7S8E/74jPNqCUDDzOrVld25SlDslvjtnFVZBJ0= springcloud@DESKTOP-P1CREOG
+
