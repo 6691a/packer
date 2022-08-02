@@ -1,1 +1,1 @@
-pk build -var-file='./variables.pkr.hcl' -var-file='../credentials.pkr.hcl' ./ubuntu_20.04.pkr.hcl
+pk build -var-file='./variables.pkr.hcl' -var-file='../credentials.pkr.hcl' ./ubuntu20.04.pkr.hcl
