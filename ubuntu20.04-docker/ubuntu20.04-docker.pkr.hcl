@@ -59,7 +59,7 @@ source "proxmox" "ubuntu-20-04" {
     scsi_controller = "virtio-scsi-pci"
 
     disks {
-        disk_size = "100G"
+        disk_size = "10G"
         format = "raw"
         storage_pool = "storage01"
         storage_pool_type = "lvm"
@@ -67,10 +67,10 @@ source "proxmox" "ubuntu-20-04" {
     }
 
     # VM CPU Settings
-    cores = "2"
+    cores = "1"
     
     # VM Memory Settings
-    memory = "4096" 
+    memory = "2048" 
 
     # VM Network Settings
     network_adapters {
